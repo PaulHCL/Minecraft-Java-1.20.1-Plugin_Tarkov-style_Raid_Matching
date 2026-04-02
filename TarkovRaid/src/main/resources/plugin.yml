@@ -1,0 +1,13 @@
+name: TarkovRaid
+version: 1.0.7
+main: com.tarkov.raid.TarkovRaidPlugin
+api-version: '1.20'
+authors: [Paul2946067271]
+description: A Tarkov-style Raid matching system
+commands:
+  traid:
+    description: Main command for Tarkov Raid system
+    usage: /<command> <subcommand>
+permissions:
+  traid.admin:
+    default: op

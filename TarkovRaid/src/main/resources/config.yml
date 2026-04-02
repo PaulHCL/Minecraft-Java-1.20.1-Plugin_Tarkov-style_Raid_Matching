@@ -1,0 +1,34 @@
+# TarkovRaid 插件配置文件
+# 修改后请使用 /traid reload 重载
+
+messages:
+  prefix: "&6[TarkovRaid] "
+  help_title: "=== 塔科夫战局系统 ==="
+  help_create: "&e/traid create <战局名> - 开始设置 (第 1 点)"
+  help_create_continue: "&e/traid create - 继续设置 (第 2-5 点)"
+  help_confirm: "&e/traid confirm - 结束设置并保存"
+  help_setjoin: "&e/traid setjoin <战局名> - 设置脚下为加入点"
+
+  console_only: "&c请在游戏中使用此指令。"
+  no_permission: "&c你没有权限。"
+  first_create_name: "&c首次输入需提供战局名称：/traid create <名称>"
+  raid_exists: "&c该战局名称已存在！"
+  raid_not_found: "&c该战局不存在。"
+  no_session: "&c当前没有进行中的设置。"
+  not_enough_points: "&c未完成 5 点记录，无法保存。"
+  points_enough: "&c点数已足够，请使用 /traid confirm 保存。"
+  verify_failed: "&c验证失败！第 5 次输入必须站在第 1 个点上！"
+
+  point_recorded: "&a[{0}/5] 已记录第 {0} 点。继续或返回起点。"
+  point_final: "&a[5/5] 验证通过！区域闭合。请输入 /traid confirm 结束设置。"
+  raid_created: "&a战局 [{0}] 创建成功！"
+  raid_create_failed: "&c创建失败，请检查控制台。"
+  join_point_set: "&a已将脚下方块设置为 [{0}] 的加入点。"
+  config_reloaded: "&a配置已重载。"
+
+  teleport_message: "&e你已潜入战局区域：{0}"
+
+teleport:
+  max_attempts: 50
+  min_y: -64
+  max_y: 319

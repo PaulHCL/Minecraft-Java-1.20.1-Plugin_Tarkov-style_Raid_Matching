@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.tarkov</groupId>
+    <artifactId>TarkovRaid</artifactId>
+    <version>1.0.7</version>
+    <packaging>jar</packaging>
+
+    <name>TarkovRaid</name>
+    <description>Tarkov Style Raid Plugin</description>
+
+    <properties>
+        <java.version>17</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>papermc</id>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
+        </repository>
+        <repository>
+            <id>spigotmc-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>aliyunmaven</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>1.20.1-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.tarkov.raid.TarkovRaidPlugin</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.github.wvengen</groupId>
+                <artifactId>proguard-maven-plugin</artifactId>
+                <version>2.6.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>proguard</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <obfuscate>true</obfuscate>
+                    <injar>${project.build.finalName}.jar</injar>
+                    <outjar>${project.build.finalName}-protected.jar</outjar>
+                    <addMavenDescriptor>false</addMavenDescriptor>
+                    <options>
+                        <option>-target 17</option>
+                        <option>-dontwarn</option>
+                        <option>-ignorewarnings</option>
+                        <option>-dontoptimize</option>
+                        <option>-dontshrink</option>
+                        <option>-keep public class com.tarkov.raid.TarkovRaidPlugin { *; }</option>
+                        <option>-keep class * implements org.bukkit.event.Listener { *; }</option>
+                        <option>-keep class * implements org.bukkit.command.CommandExecutor { *; }</option>
+                        <option>-keep class * implements org.bukkit.command.TabCompleter { *; }</option>
+                        <option>-keep class com.tarkov.raid.RaidManager { *; }</option>
+                        <option>-keep class com.tarkov.raid.RaidManager$* { *; }</option>
+                        <option>-keep class com.tarkov.raid.MessageManager { *; }</option>
+                        <option>-dontwarn org.bukkit.**</option>
+                        <option>-dontwarn io.papermc.**</option>
+                        <option>-keep class org.bukkit.** { *; }</option>
+                        <option>-keep class io.papermc.** { *; }</option>
+                    </options>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.guardsquare</groupId>
+                        <artifactId>proguard-base</artifactId>
+                        <version>7.4.0</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.guardsquare</groupId>
+                        <artifactId>proguard-core</artifactId>
+                        <version>9.1.4</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>
