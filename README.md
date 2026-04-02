@@ -350,7 +350,6 @@ debug:
 ```
 TarkovRaid
 ├─ pom.xml
-├─ TarkovRaid.iml
 ├─ src
 │  └─ main
 │     ├─ resources
