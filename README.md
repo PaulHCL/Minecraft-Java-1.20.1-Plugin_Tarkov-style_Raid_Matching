@@ -364,15 +364,8 @@ TarkovRaid
 │                 ├─ JoinListener.java
 │                 ├─ MessageManager.java
 │                 ├─ RaidManager.java
-│                 └─ TarkovRaidPlugin.java
-└─ .idea
-   ├─ .gitignore
-   ├─ compiler.xml
-   ├─ encodings.xml
-   ├─ jarRepositories.xml
-   ├─ misc.xml
-   ├─ modules.xml
-   └─ workspace.xml
+|                 └─ TarkovRaidPlugin.java
+└─ 
 
 ```
 
