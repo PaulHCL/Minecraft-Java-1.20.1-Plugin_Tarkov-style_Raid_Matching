@@ -23,7 +23,6 @@ TarkovRaid is a Tarkov-style raid matching system plugin designed for Minecraft 
 | ⏱️ 10 秒倒计时传送 | ⏱️ 10-second countdown teleportation |
 | 🛡️ 安全位置预检测（避免传送到墙壁/虚空） | 🛡️ Safe location pre-detection (avoid walls/void) |
 | 📝 配置文件外置消息（易于自定义） | 📝 External config messages (easy customization) |
-| 🔒 ProGuard 代码混淆保护 | 🔒 ProGuard code obfuscation protection |
 | 💾 数据自动保存（服务器重启不丢失） | 💾 Auto-save data (persistent after restart) |
 
 ---
